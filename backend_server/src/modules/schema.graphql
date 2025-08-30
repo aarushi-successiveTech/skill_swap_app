@@ -1,0 +1,13 @@
+type Query{
+    notifications: [Notification!]!
+}
+
+type Mutation {
+    createNotification(message: String!, userId: ID!) : Notification!
+    sendMessage(fromUser: ID!, toUser: ID!, message: String!): ChatMessage!
+}
+
+type Subscription {
+    notificationAdded(userId: ID!): Notification!
+    messageReceived(userId: ID!): ChatMessage!
+}
