@@ -74,7 +74,14 @@ export default function MessagePage() {
 
       if (res.ok) {
         const sentMessage = await res.json();
-        setMessages((prevMessages) => [...prevMessages, sentMessage]);
+
+        const populatedMessage = {
+          ...sentMessage, 
+          fromUser: {_id: sentMessage.fromUser},
+          toUser: {_id : sentMessage.toUser}
+        }
+
+        setMessages((prevMessages) => [...prevMessages, populatedMessage]);
         setNewMessage("");
       } else {
         console.error("Failed to send message");
@@ -91,7 +98,7 @@ export default function MessagePage() {
   return (
     <div className="flex flex-col h-screen bg-gray-100">
       <header className="bg-white shadow p-4">
-        <h1 className="text-xl font-bold">Chat with {messages[0]?.toUser.name || "User"}</h1>
+        <h1 className="text-xl font-bold">{messages[0]?.toUser.name || "User"}</h1>
       </header>
       
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -102,12 +109,12 @@ export default function MessagePage() {
             <div
               key={index}
               className={`flex ${
-                msg.fromUser === loggedId ? "justify-end" : "justify-start"
+                msg.fromUser._id === loggedId ? "justify-end" : "justify-start"
               }`}
             >
               <div
                 className={`max-w-xs md:max-w-md p-3 rounded-lg ${
-                  msg.fromUser === loggedId
+                  msg.fromUser._id === loggedId
                     ? "bg-blue-500 text-white"
                     : "bg-gray-300 text-gray-800"
                 }`}

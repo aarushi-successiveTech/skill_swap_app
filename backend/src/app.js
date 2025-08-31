@@ -7,6 +7,7 @@ import swapRoute from './route/swapRoute.js';
 import matchRoute from './route/matchRoute.js';
 import userRoute from './route/userRoute.js';
 import chatRoute from './route/chatRoute.js';
+import notificationRoute from './route/notificationRoute.js';
 
 const PORT = 5000; 
 const app = express(); 
@@ -20,8 +21,7 @@ app.use('/', swapRoute);
 app.use('/', matchRoute); 
 app.use('/', userRoute); 
 app.use('/', chatRoute); 
-
-
+app.use('/', notificationRoute)
 
 app.use('/test', (req, res) => {
     res.json('testing works'); 

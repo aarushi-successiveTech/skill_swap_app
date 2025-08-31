@@ -21,7 +21,6 @@ export default function Sidebar({ isOpen, setIsOpen }) {
       </div>
 
       <nav className="space-y-4">
-        {/* swaps */}
         <button
           onClick={() => router.push("/swap")}
           className="w-full flex items-center gap-2 text-left px-4 py-2 rounded hover:bg-gray-700"
@@ -29,7 +28,6 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           {isOpen && "My Swaps"}
         </button>
 
-        {/* chats */}
         <button
           onClick={() => router.push("/chat")}
           className="w-full flex items-center gap-2 text-left px-4 py-2 rounded hover:bg-gray-700"
@@ -37,24 +35,20 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           {isOpen && "chats"}
         </button>
 
-        {/* community */}
         <button
-          onClick={() => router.push("/community")}
+          onClick={() => router.push("/notif")}
           className="w-full flex items-center gap-2 text-left px-4 py-2 rounded hover:bg-gray-700"
         >
-          {isOpen && "Community"}
+          {isOpen && "Notifications"}
         </button>
 
-        {/* Separating line */}
         <div className="border-t border-gray-700 pt-4 mt-4">
-          {/* My Profile */}
           <button
             onClick={() => router.push("/profile")}
             className="w-full flex items-center gap-2 text-left px-4 py-2 rounded hover:bg-gray-700"
           >
             {isOpen && "My Profile"}
           </button>
-          {/* Logout */}
           <button
             onClick={() => {
               localStorage.removeItem("token");
