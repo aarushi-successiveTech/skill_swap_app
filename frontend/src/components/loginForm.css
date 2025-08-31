@@ -1,0 +1,14 @@
+@keyframes swirlAnimation {
+  0% {
+    transform: rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.animated-text {
+  animation: swirlAnimation 1.5s ease-out forwards;
+}

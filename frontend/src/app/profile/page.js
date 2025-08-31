@@ -91,14 +91,14 @@ export default function ProfilePage() {
   if (!user) return <div className="p-4">Loading...</div>;
 
   return (
-    <div className="flex justify-center items-center p-1">
+    <div className="flex justify-center items-start p-10">
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md border">
 
       <div className="mb-8 ">
         <ProfileCard name={user.name} email={user.email} />
       </div>
 
-      <div className="mb-8 flex flex-col gap-4">
+      <div className="mb-8 flex flex justify-between items-start gap-4">
           <SkillsOfferedCard skills={user.skillOffered} />
           <SkillsWantedCard skills={user.skillWanted} />
 

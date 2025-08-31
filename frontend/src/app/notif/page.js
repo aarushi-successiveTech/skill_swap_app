@@ -1,7 +1,6 @@
 'use client'; 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { jwtDecode } from "jwt-decode";
 
 export default function NotificationPage(){
 
