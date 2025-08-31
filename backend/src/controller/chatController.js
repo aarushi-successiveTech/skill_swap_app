@@ -1,5 +1,4 @@
 import { sendChatService } from "../service/chatService.js";
-import swapModel from "../model/swapModel.js";
 import chatModel from "../model/chatModel.js";
 
 export const sendChatController = async(req, res) => {
@@ -28,7 +27,9 @@ export const getChatHistory = async(req, res) => {
                 {fromUser: userId, toUser: otherUserId}, 
                 {fromUser: otherUserId, toUser: userId}
             ],
-        }).sort({createdAt: 1});
+        }).sort({createdAt: 1})
+        .populate("fromUser", "name email")
+        .populate("toUser", "name email");
 
         res.json(messages); 
     }
