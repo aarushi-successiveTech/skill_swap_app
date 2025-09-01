@@ -28,7 +28,17 @@ Teach what you know, learn what you need.
 ## Project Demo 🚀
 
 1. User Registration and Login
+- ![login page](assets/login.png)
+- ![register page](assets/register.png)
 2. Profile and Skills
-3. Community Dashboard
-4. Chat Interface
-5. Notifications
+- ![Profile page](assets/profile.png)
+3. Dashboard
+- ![Dashboard page](assets/dashboard.png)
+4. Community Dashboard
+- ![Community Page](assets/community.png)
+5. Chat Interface
+- ![chat page](assets/chatPage.png)
+6. Notifications
+- ![notification page](assets/notifs.png)
+7. Swaps
+- ![swaps page](assets/swaps.png)
