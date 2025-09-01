@@ -1,2 +1,34 @@
-# skill_swap_app
-mini project 
+# Skill Swap App 👋
+Teach what you know, learn what you need.
+
+## Key Features Implemented ✨
+1. User Authentication: Secure user registration and login functionality. Users can create a new account or log in with existing credentials to access the app's features.
+
+2. Profile and Skills Management: Users can add, update, and manage their skills. This includes skills they are willing to teach (Skills Offered) and skills they want to learn (Skills Wanted).
+
+3. Swap Section: This feature allows users to see their connections and potential swap partners based on their skills.
+
+4. Real-Time Chat: A dedicated chat section for users to communicate with their connections in real time to discuss potential skill swaps.
+
+5. Dashboard: The central hub where users can discover and explore potential users and their skills, making it easy to find a suitable match.
+
+6. Notifications: A notifications tab to keep users updated on new messages, swap requests, or other important activities within the app.
+
+## Tech Stack 💻
+- Frontend: Built with Next.js for a fast and dynamic user experience.
+
+- Backend: Powered by Node.js for the server-side logic.
+
+- GraphQL: Apollo Server is used to handle all GraphQL queries and mutations, providing an efficient way to fetch and send data.
+
+- Database: MongoDB is used as the NoSQL database to store user and skill information.
+
+- Real-time Functionality: GraphQL Subscriptions and PubSub are implemented to enable real-time updates for features like notifications.
+
+## Project Demo 🚀
+
+1. User Registration and Login
+2. Profile and Skills
+3. Community Dashboard
+4. Chat Interface
+5. Notifications
