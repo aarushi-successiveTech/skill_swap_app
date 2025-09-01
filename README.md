@@ -15,15 +15,10 @@ Teach what you know, learn what you need.
 6. Notifications: A notifications tab to keep users updated on new messages, swap requests, or other important activities within the app.
 
 ## Tech Stack 💻
-- Frontend: Built with Next.js for a fast and dynamic user experience.
-
-- Backend: Powered by Node.js for the server-side logic.
-
-- GraphQL: Apollo Server is used to handle all GraphQL queries and mutations, providing an efficient way to fetch and send data.
-
-- Database: MongoDB is used as the NoSQL database to store user and skill information.
-
-- Real-time Functionality: GraphQL Subscriptions and PubSub are implemented to enable real-time updates for features like notifications.
+- Nextjs(Frontend) 
+- Nodejs(Rest APIs) 
+- Graphql(Subscriptions and Pubsub)
+- MongoDB(Database)
 
 ## How To Run ▶️
 1. start the Backend
