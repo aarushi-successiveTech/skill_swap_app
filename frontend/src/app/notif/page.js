@@ -1,12 +1,14 @@
 'use client'; 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useNotifications } from "../../context/notificationContext";
 
 export default function NotificationPage(){
 
     const[notifs, setNotifs] = useState([]); 
     const[loading, setLoading] = useState(true);
     const router = useRouter();  
+    const { markAllAsRead } = useNotifications();
 
     useEffect(() => {
         const storedToken = localStorage.getItem("token"); 
@@ -22,6 +24,7 @@ export default function NotificationPage(){
                 const data = await res.json(); 
                 if(res.ok){
                     setNotifs(data); 
+                    await markAllAsRead();
                 }
                 else{
                     console.error(data.message);
@@ -36,7 +39,7 @@ export default function NotificationPage(){
         }; 
 
         fetchNotifications(); 
-    }, [router]);
+    }, [router, markAllAsRead]);
     
     if(loading){
         return <p className="p-6">Loading notifications...</p>;

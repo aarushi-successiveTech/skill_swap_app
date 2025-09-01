@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import LoginForm from "@/components/loginForm"; 
+import { useAuth } from '../../../context/authContext'; 
 
 export default function LoginPage() {
+  const { login } = useAuth(); 
   const router = useRouter();
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
@@ -24,9 +26,7 @@ export default function LoginPage() {
 
       const data = await res.json();
       if (!res.ok) return setError("oh! Please register first");
-
-      localStorage.setItem("token", data.token);
-      router.push("/dashboard");
+      login(data.token);
     } catch {
       setError("Something went wrong. Try again.");
     }

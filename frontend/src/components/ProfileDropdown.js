@@ -1,19 +1,20 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '../context/authContext'; 
 
 export default function ProfileDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const dropdownRef = useRef(null);
+  const { logout } = useAuth();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    router.push('/auth/login');
+    logout(); 
   };
 
   useEffect(() => {

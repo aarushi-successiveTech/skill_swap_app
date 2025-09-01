@@ -1,9 +1,12 @@
 "use client";
 import { Menu } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useNotifications } from "../context/notificationContext";
+import Image from "next/image";
 
 export default function Sidebar({ isOpen, setIsOpen }) {
   const router = useRouter();
+  const { hasUnread } = useNotifications(); 
   return (
     <aside
       className={`${
@@ -11,7 +14,18 @@ export default function Sidebar({ isOpen, setIsOpen }) {
       } bg-gray-900 text-white flex flex-col p-4 transition-all duration-200`}
     >
       <div className="flex items-center justify-between mb-8">
-        {isOpen && <h2 className="text-2xl font-bold">SkillSwap</h2>}
+        {isOpen && (
+          <div className="flex items-center space-x-2">
+            <Image
+              src="/skillSwap.png" 
+              alt="SkillSwap Logo"
+              width={32}
+              height={32}
+            />
+            <h2 className="text-2xl font-bold">SkillSwap</h2>
+          </div>
+        )
+        }
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-2 rounded hover:bg-gray-800"
@@ -40,7 +54,10 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           className="w-full flex items-center gap-2 text-left px-4 py-2 rounded hover:bg-gray-700"
         >
           {isOpen && "Notifications"}
-        </button>
+          {hasUnread && (
+                        <span className="absolute top-2 right-2 h-3 w-3 bg-red-500 rounded-full animate-pulse" />
+                    )}
+          </button>
 
         <div className="border-t border-gray-700 pt-4 mt-4">
           <button
