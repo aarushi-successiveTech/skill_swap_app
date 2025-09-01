@@ -25,6 +25,22 @@ Teach what you know, learn what you need.
 
 - Real-time Functionality: GraphQL Subscriptions and PubSub are implemented to enable real-time updates for features like notifications.
 
+## How To Run ▶️
+1. start the Backend
+- cd backend
+- node src/app.js
+- This will start backend available at port: http://localhost:5000
+
+2. start the Graphql
+- cd backend_server
+- npm run dev 
+- This will start the graphql server at: http://localhost:4000/graphql
+
+3. start the Frontend 
+- cd frontend
+- npm run dev 
+- This will start the frontend at: http://localhost:3000
+
 ## Project Demo 🚀
 
 1. User Registration and Login
