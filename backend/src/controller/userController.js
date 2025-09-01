@@ -1,4 +1,4 @@
-import { updateUserService, deleteUserService, getUserService } from "../service/userService.js";
+import { updateUserService, deleteUserService, getUserService, getUsers } from "../service/userService.js";
 
 export const updateUserController = async(req, res) => {
     try{
@@ -52,4 +52,25 @@ export const getUserController = async(req, res) => {
     catch(error){
         return res.status(400).json({message: 'fetched failed', error}); 
     }
-}
+}; 
+
+export const getUsersController = async(req, res) => {
+    try{
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const result = await getUsers(page, limit);
+        if (result.error) {
+            return res.status(400).json({ message: 'Users not found' });
+        }
+        return res.status(200).json({
+            message: 'users fetched successfully', 
+            users: result.users,
+            total: result.total, 
+            page: result.page, 
+            pages: result.pages
+        }); 
+    }
+    catch(error){
+        return res.status(400).json({message:'fetch failed', error}); 
+    }
+};

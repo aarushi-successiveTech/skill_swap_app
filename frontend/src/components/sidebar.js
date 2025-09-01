@@ -58,6 +58,12 @@ export default function Sidebar({ isOpen, setIsOpen }) {
                         <span className="absolute top-2 right-2 h-3 w-3 bg-red-500 rounded-full animate-pulse" />
                     )}
           </button>
+          <button
+          onClick={() => router.push("/community")}
+          className="w-full flex items-center gap-2 text-left px-4 py-2 rounded hover:bg-gray-700"
+        >
+          {isOpen && "Community"}
+        </button>
 
         <div className="border-t border-gray-700 pt-4 mt-4">
           <button

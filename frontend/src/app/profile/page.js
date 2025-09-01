@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import ProfileCard from "@/components/profileCard";
 import { SkillsOfferedCard, SkillsWantedCard } from "@/components/skillsCard";
 
@@ -91,8 +92,13 @@ export default function ProfilePage() {
   if (!user) return <div className="p-4">Loading...</div>;
 
   return (
-    <div className="flex justify-center items-start p-10">
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md border">
+    <div className="relative w-full min-h-screen">
+      <div className="absolute inset-0 bg-white"></div>
+      <div className="relative flex justify-center items-center p-10 bg-center">
+    <div className="relative z-10 max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md border">
+          <div className="mt-8 text-center text-4xl text-black"> 
+            <span className="animate-wave mr-1">👋</span> Hi {user.name}!
+          </div>
 
       <div className="mb-8 ">
         <ProfileCard name={user.name} email={user.email} />
@@ -122,7 +128,7 @@ export default function ProfilePage() {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
           <div className="bg-white p-6 rounded-lg shadow-lg w-96 space-y-4">
             <h2 className="text-xl font-bold">Add New Skill</h2>
             <input
@@ -157,6 +163,7 @@ export default function ProfilePage() {
           </div>
         </div>
       )}
+    </div>
     </div>
     </div>
   );

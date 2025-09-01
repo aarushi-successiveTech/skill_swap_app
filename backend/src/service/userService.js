@@ -32,3 +32,23 @@ export const getUserService = async(userId) => {
         return {error: 'fetching unsuccessful'}
     }
 };
+
+export const getUsers = async(page=1 ,limit = 10) => {
+    try{
+        const skip = (page-1) * limit; 
+        const totalUsers = await userModel.countDocuments(); 
+        const fetchUsers = await userModel.find()
+        .skip(skip)
+        .limit(limit); 
+
+        return {
+            users: fetchUsers, 
+            total : totalUsers, 
+            page: parseInt(page), 
+            pages: Math.ceil(totalUsers/ limit)
+        }; 
+    }
+    catch(error){
+        return {error: 'fetching unsuccessful'}
+    }
+}; 
